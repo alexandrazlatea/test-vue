@@ -22,9 +22,14 @@
                             </ul>
                             <div class="flat-top flat-language">
                                 <ul class="unstyled">
-                                    <li v-if="status.loggedIn != true" @click="loginClicked">Login</li>
-                                    <li  v-if="status.loggedIn != true"  @click="register">Register</li>
-                                    <li  v-if="status.loggedIn == true"  @click="logoutClicked">Logout</li>
+                                    <li class="pointer-cursor user-control" @click="loginClicked">
+                                        <i class="fa fa-user-circle"></i>
+                                        <span>Log In</span>
+                                    </li>
+                                    <li class="pointer-cursor user-control" @click="register">
+                                        <i class="fa fa-user-plus"></i>
+                                        <span>Sign Up</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -49,7 +54,6 @@
 <script>
     import Register from './Register.vue';
     import Login from './Login.vue';
-    import { mapState, mapActions } from 'vuex'
 
     export default {
         name: 'Top',
@@ -59,16 +63,11 @@
                 showLogin: null,
             }
         },
-
         components: {
             Register,
             Login
         },
-        computed: {
-            ...mapState('account', ['status'])
-        },
         methods: {
-            ...mapActions('account', ['logout']),
             loginClicked() {
                 this.showLogin = true;
                 if (this.$refs['openLogin']) {
@@ -81,10 +80,6 @@
                     this.$refs['register'].openRegistration();
                 }
             },
-
-            logoutClicked() {
-                this.logout()
-            }
         }
     };
 

@@ -84,15 +84,6 @@
                             </div>
                             <ul class="menu educare-ex-nav">
                                 <li id="s" class="show-search"> <a href="#search" class="flat-search"><i class="fa fa-search"></i></a> </li>
-                                <li class="shopping-cart"> <a href="#"> <i class="fa fa-shopping-cart"></i> </a>
-                                    <div class="educare-shoping-box">
-                                        <div class="shopping-cart-section">
-                                            <ul class="cart_list product_list_educare-info margin-bottom-20">
-                                                <li class="mini_cart_item"> no product </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                             <div class="educare-btn-menu"> <span></span> </div>
                             <!-- //mobile menu button -->

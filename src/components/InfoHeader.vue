@@ -4,7 +4,7 @@
             <div class="header-wrap clearfix">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div id="logo" class="logo">  <img src="../../public/images/logo.png" >  </div>
+                        <div id="logo" class="logo"></div>
                         <!-- /.logo -->
 
                     </div>

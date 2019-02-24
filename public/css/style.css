@@ -81,6 +81,9 @@ Header.vue Section
 .project-dynamic .entry .content-post, .project-dynamic .entry .category, #mainnav.color-white > ul > li.active > a, #mainnav.color-white > ul > li > a:hover, #mainnav.color-white ul.submenu > li > a:hover, .project-dynamic .entry .content-post .title-post a, .social-links.color-white li a, .project-dynamic .entry .readmore, .infomation-text, .educare-info.educare-info-nav-menu ul li a:hover, .educare-info.educare-info-nav-menu ul li.active a, .breadcrumbs ul li:before, .breadcrumbs ul li a, .breadcrumbs ul li, .page-title-heading h1, #educare-mobile-nav ul.sub-menu > li > a:hover, #educare-mobile-nav > ul > li > ul > li.active > a, #educare-mobile-nav ul > li > a, #mainnav > ul > li > a, .educare-ex-nav li a, .social-links.style3 a:hover, .educare-search #searchform-all #searchsubmit, .flat-language > ul > li > ul li a, .flat-information.before-white li i, .btn-click.color-white .flat-button, .project-dynamic .entry .readmore:after, .flat-language.color-white .current a, .flat-information.style2 li a {
 	color: #ffffff;
 }
+.pointer-cursor {
+	cursor: pointer;
+}
 .header .background-white, #mainnav ul.submenu, .shopping-cart .educare-shoping-box, .header.bg-white, .header-style3.downscrolled {
 	background-color: #ffffff;
 }
@@ -302,6 +305,16 @@ Header.vue Section
 }
 .header .logo {
 	margin: 20px 0 0 0;
+	background-image: url(../images/logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: inline-block;
 }
 .header.header-backgroundf61 {
 	background-color: #1c0f61;
@@ -486,7 +499,7 @@ Header.vue Section
 	border-top: none;
 }
 /* Button menu mobile */
-.educare-btn-menu {
+.educare-btn-menu, .user-popup-header {
 	display: none;
 	position: relative;
 	background: transparent;
@@ -500,13 +513,68 @@ Header.vue Section
  -moz-transition: all ease .238s;
  transition: all ease .238s;
 }
-.educare-btn-menu:before, .educare-btn-menu:after, .educare-btn-menu span {
+.user-control > i {
+	color: #86bc42;
+}
+.user-control > span {
+	margin-left: 4px;
+}
+.user-control:hover, .user-control:hover > i {
+	background-color: #86bc42;
+	border-color: #86bc42;
+	color: white;
+	border-radius: 8px;
+}
+.user-popup {
+	position: relative;
+    margin: 0;
+    left: 50%;
+    transform: translate(-50%,-25%) !important;
+	top: 25%;
+	max-width: 450px;
+}
+.user-popup-modal-content {
+	padding: 24px;
+}
+.user-popup-header {
+	display: inline-flex;
+	opacity: 1;
+	width: 24px;
+	height: 24px;
+	padding: 0 !important;
+	margin: 0 0 0 auto !important;
+}
+.user-popup-controls-container {
+	margin-bottom: 0;
+	margin-top: 8px;
+}
+.user-popup-control-btn {
+	color: white;
+	background-color: #86bc42;
+	border-color: #86bc42;
+}
+.user-popup-control-btn:hover {
+	background-color: #0F3661;
+	border-color: #0F3661;
+	color: white;
+}
+.user-popup-control-text {
+	color: #86bc42;
+}
+.user-popup-control-text:hover {
+	color: #0F3661;
+}
+.user-popup-input {
+	margin-bottom: 0 !important;
+    padding: 4px 12px 4px 8px !important;
+}
+.educare-btn-menu:before, .user-popup-header:before, .user-popup-header:after, .educare-btn-menu:after, .educare-btn-menu span {
 	background-color: #86bc42;
  -webkit-transition: all ease .238s;
  -moz-transition: all ease .238s;
  transition: all ease .238s;
 }
-.educare-btn-menu:before, .educare-btn-menu:after {
+.educare-btn-menu:before, .educare-btn-menu:after, .user-popup-header:before, .user-popup-header:after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -538,11 +606,11 @@ Header.vue Section
 .educare-btn-menu.active span {
 	opacity: 0;
 }
-.educare-btn-menu.active:before {
+.educare-btn-menu.active:before, .user-popup-header:before {
 	-webkit-transform: rotate3d(0, 0, 1, 45deg);
 	transform: rotate3d(0, 0, 1, 45deg);
 }
-.educare-btn-menu.active:after {
+.educare-btn-menu.active:after, .user-popup-header:after {
 	-webkit-transform: rotate3d(0, 0, 1, -45deg);
 	transform: rotate3d(0, 0, 1, -45deg);
 }
@@ -1974,12 +2042,20 @@ button {
 .nav-tabs > li > a > .fa {
 	margin-right: 5px;
 }
+body {
+	padding-right: 0 !important;
+}
 .short-msg-tab .tab-pane h3 {
 	font-weight: 400;
 	margin: 30px 0;
 	font-size: 20px;
 	padding-bottom: 7px;
 	display: inline-block;
+}
+.modal-header {
+	padding: 0;
+	border-bottom: none;
+	margin-bottom: 16px;
 }
 .modal-open {
 	padding: 0 !important;
