@@ -3,9 +3,9 @@
     <!-- Option Panel -->
 
     <!-- Content area start -->
-    <form @submit.prevent="handleSubmit" v-if="status.loggedIn != true">
+    <form @submit.prevent="handleSubmit" >
         <div class="modal-container">
-            <div v-if="status.loggedIn != true" class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            <div  class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog user-popup" role="document">
                     <div class="modal-content">
@@ -80,6 +80,13 @@
             this.logout();
 
         },
+        watch: {
+            status(){
+                if (this.status.loggedIn) {
+                    this.closeModal()
+                }
+            }
+        },
         mounted() {
             if (status.loggedIn == true) {
                 console.log('created')
@@ -103,6 +110,9 @@
                         this.register(this.user);
                     }
                 });
+            },
+            closeModal () {
+                document.querySelector('.close').click()
             }
         }
 

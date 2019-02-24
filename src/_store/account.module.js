@@ -47,6 +47,12 @@ const actions = {
     }
 };
 
+const getters = {
+    getLoggedIn(state){
+        return state.loggedIn ;
+    }
+}
+
 const mutations = {
     loginRequest(state, user) {
         state.status = { loggingIn: true };

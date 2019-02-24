@@ -39,46 +39,70 @@
     <!-- Content area end -->
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+    import { mapState, mapActions, mapMutations } from 'vuex';
+    export default {
+        name: 'Login',
+        data(){
+            return {
+                username : "",
+                password : "",
+                submitted: false
 
-export default {
-  name: "Login",
-  data() {
-    return {
-      username: "",
-      password: "",
-      submitted: false
-    };
-  },
-  created() {
-    console.log("intra aici");
-    //            this.logout();
-  },
-  mounted() {
-    this.openLogin();
-  },
-  computed: {
-    ...mapState("account", ["status"])
-  },
-  created() {
-    // reset login status
-    //            this.logout();
-  },
-  methods: {
-    ...mapActions("account", ["login", "logout"]),
-    openLogin() {
-      document.querySelector("#login-btn").click();
-    },
-    handleLogin(e) {
-      this.submitted = true;
-      const { username, password } = this;
-      console.log(username, "username");
-      if (username && password) {
-        this.login({ username, password });
-      }
+            }
+        },
+        created() {
+            console.log('intra aici')
+//            this.logout();
+
+        },
+        mutations: {
+            ...mapMutations('account', ['loginSuccess']),
+            loginSuccess(state) {
+                alert()
+            }
+        },
+
+        getters() {
+            console.log(this.status);
+        },
+
+        mounted() {
+            this.openLogin()
+        },
+        watch: {
+            status(){
+               if (this.status.loggedIn) {
+                   this.closeModal()
+               }
+            }
+        },
+        computed: {
+            ...mapState('account', ['status']),
+            currentLocation() { return this.$store.state.loggedIn },
+        },
+        created () {
+            // reset login status
+//            this.logout();
+        },
+        methods: {
+            ...mapActions('account', ['login', 'logout']),
+            openLogin() {
+                document.querySelector('#login-btn').click()
+            },
+            handleLogin (e) {
+                this.submitted = true;
+                const { username, password } = this;
+                if (username && password) {
+                    this.login({ username, password })
+                }
+            },
+            closeModal () {
+                document.querySelector('.close').click()
+            }
+
+        }
+
     }
-  }
-};
 </script>
 
 <style scopped>
