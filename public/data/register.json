@@ -1,0 +1,11 @@
+[
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "country": "Kenya",
+    "date_of_birth": "20.04.1989",
+    "username": "john.doe",
+    "email": "john.doe@gmail.com",
+    "token": "12344566"
+  }
+]

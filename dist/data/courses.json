@@ -1,0 +1,63 @@
+[
+  {
+    "name": "English",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Magistrale",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolld": "6k",
+    "video": "../../public/videos/into-the-nature.mp4"
+  },
+  {
+    "name": "Math",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Rains",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolled": "2k",
+    "video": "../../public/videos/into-the-nature.mp4"
+  },
+  {
+    "name": "Geography",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Magistrale",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolled": "2k",
+    "video": "../../public/videos/into-the-nature.mp4"
+
+  },
+  {
+    "name": "History",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Rains",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolled": "6k",
+    "video": "../../public/videos/into-the-nature.mp4"
+  },
+  {
+    "name": "Science",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Rains",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolled": "3k",
+    "video": "../../public/videos/into-the-nature.mp4"
+  },
+  {
+    "name": "Art and design",
+    "grade": 1,
+    "id": 1,
+    "duration": "10h",
+    "teacher": "Mr.Rains",
+    "thumbnail_url": "../../public/images/small-course.jpg",
+    "users_enrolled": "5k",
+    "video": "../../public/videos/into-the-nature.mp4"
+  }
+]
