@@ -22,13 +22,16 @@
                             </ul>
                             <div class="flat-top flat-language">
                                 <ul class="unstyled">
-                                    <li class="pointer-cursor user-control" @click="loginClicked">
+                                    <li v-if="status.loggedIn != true" class="pointer-cursor user-control" @click="loginClicked">
                                         <i class="fa fa-user-circle"></i>
                                         <span>Log In</span>
                                     </li>
-                                    <li class="pointer-cursor user-control" @click="register">
+                                    <li v-if="status.loggedIn != true" class="pointer-cursor user-control" @click="register">
                                         <i class="fa fa-user-plus"></i>
                                         <span>Sign Up</span>
+                                    </li>
+                                    <li v-if="status.loggedIn == true" class="pointer-cursor user-control" @click="logoutClicked">
+                                        <span>Logout</span>
                                     </li>
                                 </ul>
                             </div>
@@ -54,6 +57,8 @@
 <script>
     import Register from './Register.vue';
     import Login from './Login.vue';
+    import { mapState, mapActions } from 'vuex'
+
 
     export default {
         name: 'Top',
@@ -67,7 +72,11 @@
             Register,
             Login
         },
+        computed: {
+            ...mapState('account', ['status'])
+        },
         methods: {
+            ...mapActions('account', ['logout']),
             loginClicked() {
                 this.showLogin = true;
                 if (this.$refs['openLogin']) {
@@ -80,6 +89,9 @@
                     this.$refs['register'].openRegistration();
                 }
             },
+            logoutClicked() {
+                this.logout()
+            }
         }
     };
 
