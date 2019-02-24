@@ -3,9 +3,9 @@
     <!-- Option Panel -->
 
     <!-- Content area start -->
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" v-if="status.loggedIn != true">
         <div class="modal-container">
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            <div v-if="status.loggedIn != true" class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -75,11 +75,17 @@
             ...mapState('account', ['status'])
         },
         created() {
+          if (status.loggedIn == true) {
+              console.log('created')
+          }
           console.log('intra aici')
             this.logout();
 
         },
         mounted() {
+            if (status.loggedIn == true) {
+                console.log('created')
+            }
             this.openRegistration()
         },
         created () {

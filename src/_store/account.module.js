@@ -14,7 +14,7 @@ const actions = {
             .then(
                 user => {
                     commit('loginSuccess', user);
-                    router.push('/');
+                    router.push('/courses');
                 },
                 error => {
                     commit('loginFailure', error);
@@ -33,7 +33,7 @@ const actions = {
             .then(
                 user => {
                     commit('registerSuccess', user);
-                    router.push('/');
+                    router.push('/courses');
                     setTimeout(() => {
                         // display success message after route change completes
                         dispatch('alert/success', 'Registration successful', { root: true });
@@ -68,7 +68,8 @@ const mutations = {
         state.status = { registering: true };
     },
     registerSuccess(state, user) {
-        state.status = {};
+        state.status = { loggingIn: true };
+        state.user = user;
     },
     registerFailure(state, error) {
         state.status = {};

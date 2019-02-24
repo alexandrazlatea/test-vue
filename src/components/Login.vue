@@ -3,9 +3,9 @@
     <!-- Option Panel -->
 
     <!-- Content area start -->
-    <form @submit.prevent="handleLogin">
+    <form @submit.prevent="handleLogin" v-if="status.loggedIn != true" >
         <div class="modal-container">
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            <div class="modal fade" id="modalLoginForm"  v-if="status.loggedIn != true" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="text-center">
-                <a class=" register-btn btn btn-default btn-rounded mb-4" id="login-btn" data-toggle="modal" data-target="#modalRegisterForm">Launch
+                <a class=" register-btn btn btn-default btn-rounded mb-4" id="login-btn" data-toggle="modal" data-target="#modalLoginForm">Launch
                     Modal Register Form</a>
             </div>
         </div>
@@ -60,6 +60,16 @@
 //            this.logout();
 
         },
+        watch: {
+
+            loggedIn() {
+                console.log('The counter has changed!')
+            }
+        },
+        getters() {
+            console.log(this.status);
+        },
+
         mounted() {
             this.openLogin()
         },
@@ -78,7 +88,6 @@
             handleLogin (e) {
                 this.submitted = true;
                 const { username, password } = this;
-                console.log(username, 'username')
                 if (username && password) {
                     this.login({ username, password })
                 }

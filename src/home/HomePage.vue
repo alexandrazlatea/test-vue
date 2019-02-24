@@ -1,5 +1,5 @@
-<template>
-    <div v-if="selectedCourse == '' " >
+<template >
+    <div v-if="selectedCourse == null " >
         <Top></Top>
         <InfoHeader></InfoHeader>
         <Header></Header>
@@ -36,7 +36,7 @@
 export default {
     name: "HomePage",
     data() {
-        return { courses: [], selectedCourse:'' };
+        return { courses: [], selectedCourse: null };
     },
     components: {
         Top,

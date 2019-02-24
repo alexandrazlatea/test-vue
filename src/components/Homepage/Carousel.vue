@@ -1,7 +1,7 @@
 <template>
     <div class="slider_section header_height">
         <ul id="main-slider" class="owl-carousel main_slider">
-            <li class="main_slide" style="background-image: url(../../../public/images/slide-new2.jpg);">
+            <li class="main_slide" style="background-image: url(./images/slide-new2.jpg);">
                 <div class="display-table">
                     <div class="table-cell">
                         <div class="container">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </li>
-            <li class="main_slide" style="background-image: url(../../../public/images/slide-new2.jpg);">
+            <li class="main_slide" style="background-image: url(./images/slide-new2.jpg);">
                 <div class="display-table">
                     <div class="table-cell">
                         <div class="container">

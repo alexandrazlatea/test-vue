@@ -6,9 +6,6 @@
                     <div class="row">
                         <div class="col-lg-12 bottom40">
                             <h2 class="text-uppercase">About EduCare<span class="color_red"> Online Courses</span></h2>
-                            <div class="line_1"></div>
-                            <div class="line_2"></div>
-                            <div class="line_3"></div>
                         </div>
                     </div>
                     <div class="about-sev-tag">
@@ -27,21 +24,15 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-12 col-xs-12">
-                    <div class="about-sev-img" style="background-image: url(../../images/about.png);"> <img :src="image_about" alt="image"> </div>
+                    <div class="about-sev-img" style="background-image: url(../../images/about.png);"> <img src="../../../public/images/about.png" alt="image"> </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import image_about from "../../../public/images/about.png";
     export default {
         name: 'About',
-        data: function () {
-            return {
-                image_about: "../../../public/images/about.png",
-            }
-        }
     }
 </script>
 

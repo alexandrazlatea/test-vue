@@ -6,9 +6,7 @@
                     <div class="col-sm-1 col-lg-2"></div>
                     <div class="col-xs-12 col-sm-10 col-lg-8 text-center">
                         <h2 class="text-uppercase">learn from <span class="color_red">the best</span></h2>
-                        <div class="line_1-1"></div>
-                        <div class="line_2-2"></div>
-                        <div class="line_3-3"></div>
+
                         <p class="heading_space">Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing
                             vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien. </p>
                     </div>
@@ -21,7 +19,7 @@
                             <!--Staff Member-->
                             <div class="staff-member">
                                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                    <figure class="image-box"><img :src="team_3" alt="" />
+                                    <figure class="image-box"><img src="../../../public/images/team_3.jpg" alt="" />
                                         <div class="overlay-box">
                                             <ul class="social-icon-two">
                                                 <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
@@ -40,7 +38,7 @@
                             <!--Staff Member-->
                             <div class="staff-member">
                                 <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <figure class="image-box"><img :src="team_4" alt="" />
+                                    <figure class="image-box"><img src="../../../public/images/team_4.jpg" alt="" />
                                         <div class="overlay-box">
                                             <ul class="social-icon-two">
                                                 <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
@@ -59,7 +57,7 @@
                             <!--Staff Member-->
                             <div class="staff-member">
                                 <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                    <figure class="image-box"><img :src="team_1" alt="" />
+                                    <figure class="image-box"><img src="../../../public/images/team-1.jpg" alt="" />
                                         <div class="overlay-box">
                                             <ul class="social-icon-two">
                                                 <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
@@ -78,7 +76,7 @@
                             <!--Staff Member-->
                             <div class="staff-member">
                                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                    <figure class="image-box" ><img :src="team_2" alt="" />
+                                    <figure class="image-box" ><img src="../../../public/images/team_3.jpg" alt="" />
                                         <div class="overlay-box">
                                             <ul class="social-icon-two">
                                                 <li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
@@ -107,14 +105,6 @@
 
     export default {
         name: 'LearnFromTheBest',
-        data: function() {
-            return {
-                team_1: "../../src/images/team-1.jpg",
-                team_2: "../../src/images/team-1.jpg",
-                team_3: "../../src/images/team-1.jpg",
-                team_4: "../../src/images/team-1.jpg",
-            }
-        }
     }
 </script>
 <style>
