@@ -23,44 +23,30 @@ function login(username, password) {
         .then(user => {
         // login successful if there's a jwt token in the response
         user = JSON.parse(user.data['LoginUserResult']);
-    if (user['0'].Token) {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user['0']));
-    }
+        if (user && user['0'] && user['0'].Token) {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('user', JSON.stringify(user['0']));
+        } else {
+            return Promise.reject(user.status);
+        }
 
-    return user;
-});
-    // const requestOptions = {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json', 'Authorization' : 'b2NyeTYxMjlPQ2FsZXpsYXRlYW9jcnk2MTI5T0M='},
-    //     body: {username: username}
-    // };
-    // axios.defaults.headers.common['Authorization'] = 'Z3BwdTM0MjBHUGFsZXpsYXRlYWdwcHUzNDIwR1A=';
-    //
-    // return axios.post('https://mylearningservice.gear.host/RESTMyLearning.svc/userlogout', requestOptions.body)
-    //     .then(user => {
-    //         // login successful if there's a jwt token in the response
-    //         console.log(user, '')
-    //         if (user.data[0].token) {
-    //             // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //             localStorage.setItem('user', JSON.stringify(user.data[0]));
-    //         }
-    //
-    //         return user;
-    //     });
+        return user;
+    });
 }
 
 function logout() {
     const user = JSON.parse(localStorage.getItem('user'));
-    axios.defaults.headers.common['Authorization'] = user.token;
-
-    // remove user from local storage to log user out
-    return axios.post(`https://mylearningservice.gear.host/RESTMyLearning.svc/userlogout`, user)
-        .then(response_user => {
-            console.log(response_user, 'user')
+    if (user) {
+        axios.defaults.headers.common['Authorization'] = user.token;
+        // remove user from local storage to log user out
+        return axios.post(`https://mylearningservice.gear.host/RESTMyLearning.svc/userlogout`, user)
+            .then(response_user => {
             localStorage.removeItem('user');
 
-        });
+    });
+    }
+
+
 }
 
 function register(user) {
@@ -83,14 +69,14 @@ function register(user) {
 
     return axios.post(`https://mylearningservice.gear.host/RESTMyLearning.svc/users/add`, user)
         .then(response_user => {
-         console.log(response_user.data['AddUserResult'], 'user');
-         user = JSON.parse(response_user.data['AddUserResult']);
-        // login successful if there's a jwt token in the response
-        if (user['0'].Token) {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user['0']));
-        }
-        return user;
+        response_user = JSON.parse(response_user.data['AddUserResult']);
+            // login successful if there's a jwt token in the response
+            if (response_user &&  response_user['0'] && response_user['0'].Token) {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('user', JSON.stringify(response_user['0']));
+            } else {
+                return Promise.reject(response_user.status);
+            }
     });
 }
 

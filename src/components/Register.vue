@@ -33,6 +33,7 @@
                             <label htmlFor="password">Password</label>
                             <input type="password" v-model="user.password" v-validate="{ required: true, min: 6 }" name="password" class="form-control user-popup-input" :class="{ 'is-invalid': submitted && errors.has('password') }" />
                             <div v-if="submitted && errors.has('password')" class="invalid-feedback">{{ errors.first('password') }}</div>
+                            <div v-if="status.error" class="invalid-feedback ">{{ status.error }}</div>
                         </div>
                         <div class="form-group user-popup-controls-container">
                             <button class="btn btn-primary user-popup-control-btn" :disabled="status.registering">Register</button>
@@ -54,7 +55,7 @@
     <!-- Content area end -->
 </template>
 <script>
-    import { mapState, mapActions } from 'vuex'
+    import { mapState, mapActions, mapMutations } from 'vuex'
 
     export default {
         name: 'Register',
@@ -85,6 +86,9 @@
                 if (this.status.loggedIn) {
                     this.closeModal()
                 }
+                if (this.status.error) {
+                    console.log(this.status.error, 'errpr')
+                }
             }
         },
         mounted() {
@@ -112,6 +116,7 @@
                 });
             },
             closeModal () {
+                console.log('intra')
                 document.querySelector('.close').click()
             }
         }
@@ -120,6 +125,9 @@
 </script>
 
 <style scopped>
+    .invalid-feedback {
+        display: block;
+    }
     .register-btn {
         display:none;
     }

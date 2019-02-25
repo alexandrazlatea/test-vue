@@ -3,8 +3,8 @@ import { router } from '../_helpers';
 
 const user = JSON.parse(localStorage.getItem('user'));
 const state = user
-    ? { status: { loggedIn: true }, user }
-    : { status: {}, user: null };
+    ? { status: { loggedIn: true, error:false }, user }
+    : { status: {error: false}, user: null };
 
 const actions = {
     login({ dispatch, commit }, { username, password }) {
@@ -41,7 +41,7 @@ const actions = {
                 },
                 error => {
                     commit('registerFailure', error);
-                    dispatch('alert/error', error, { root: true });
+                    dispatch('alert/error', user.status, { root: true });
                 }
             );
     }
@@ -62,8 +62,9 @@ const mutations = {
         state.status = { loggedIn: true };
         state.user = user;
     },
-    loginFailure(state) {
-        state.status = {};
+    loginFailure(state, error) {
+        console.log(error, 'error')
+        state.status = {error: error};
         state.user = null;
     },
     logout(state) {
@@ -74,11 +75,11 @@ const mutations = {
         state.status = { registering: true };
     },
     registerSuccess(state, user) {
-        state.status = { loggingIn: true };
+        state.status = { loggedIn: true };
         state.user = user;
     },
     registerFailure(state, error) {
-        state.status = {};
+        state.status = { error : error}
     }
 };
 

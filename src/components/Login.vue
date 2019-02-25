@@ -23,6 +23,7 @@
                             <label htmlFor="password">Password</label>
                             <input type="password" v-model="password" name="password" class="form-control user-popup-input" :class="{ 'is-invalid': submitted && !password }" />
                             <div v-show="submitted && !password" class="invalid-feedback">Password is required</div>
+                            <div v-show="submitted && status.error" class="invalid-feedback">{{ status.error}}</div>
                         </div>
                         <div class="form-group user-popup-controls-container">
                             <button class="btn btn-deep-orange user-popup-control-btn">Login</button>
