@@ -19,7 +19,7 @@ function login(username, password) {
         body: {username: username, password: password}
     };
 
-    return axios.post('http://mylearningservice.gear.host/RESTMyLearning.svc/userlogin', requestOptions.body)
+    return axios.post('https://mylearningservice.gear.host/RESTMyLearning.svc/userlogin', requestOptions.body)
         .then(user => {
         // login successful if there's a jwt token in the response
         user = JSON.parse(user.data['LoginUserResult']);
@@ -37,7 +37,7 @@ function login(username, password) {
     // };
     // axios.defaults.headers.common['Authorization'] = 'Z3BwdTM0MjBHUGFsZXpsYXRlYWdwcHUzNDIwR1A=';
     //
-    // return axios.post('http://mylearningservice.gear.host/RESTMyLearning.svc/userlogout', requestOptions.body)
+    // return axios.post('https://mylearningservice.gear.host/RESTMyLearning.svc/userlogout', requestOptions.body)
     //     .then(user => {
     //         // login successful if there's a jwt token in the response
     //         console.log(user, '')
@@ -55,7 +55,7 @@ function logout() {
     axios.defaults.headers.common['Authorization'] = user.token;
 
     // remove user from local storage to log user out
-    return axios.post(`http://mylearningservice.gear.host/RESTMyLearning.svc/userlogout`, user)
+    return axios.post(`https://mylearningservice.gear.host/RESTMyLearning.svc/userlogout`, user)
         .then(response_user => {
             console.log(response_user, 'user')
             localStorage.removeItem('user');
@@ -81,7 +81,7 @@ function register(user) {
         data: user
     }
 
-    return axios.post(`http://mylearningservice.gear.host/RESTMyLearning.svc/users/add`, user)
+    return axios.post(`https://mylearningservice.gear.host/RESTMyLearning.svc/users/add`, user)
         .then(response_user => {
          console.log(response_user.data['AddUserResult'], 'user');
          user = JSON.parse(response_user.data['AddUserResult']);
