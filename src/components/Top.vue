@@ -3,23 +3,10 @@
         <div class="top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-sm-12 mobile-center">
-                        <div class="email"><a href="#"><i class="topbar-icon fa fa-envelope-o"></i><span>admin@yourdomain.com</span></a>
-                        </div>
-                        <div class="hotline"><a href="#"><i
-                                class="topbar-icon fa fa-phone"></i><span>+21 909 245 3215</span></a></div>
-                    </div>
                     <!-- /.col-md-6 -->
                     <div class="col-lg-6 col-sm-12 mobile-center">
                         <div class="wrap-top">
-                            <ul class="flat-top social-links">
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#" class="blog"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="#" class="dribbble"><i class="fa fa-dribbble"></i></a></li>
-                            </ul>
+
                             <div class="flat-top flat-language">
                                 <ul class="unstyled">
                                     <li v-if="status.loggedIn != true" class="pointer-cursor user-control" @click="loginClicked">
@@ -123,7 +110,7 @@
     /* Flat Language
     -------------------------------------------------------------- */
     .flat-language {
-        width: 32%;
+        width: 62%;
     }
 
     .flat-language .current a {
